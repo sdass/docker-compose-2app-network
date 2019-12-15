@@ -1,0 +1,18 @@
+version: "3"
+services:
+  producer-c:
+    image: dkr-compose-producer
+    networks:
+      - by-compose-producer-consumer
+    ports:
+      - "9090:9090"
+
+  consumer-c:
+    image: dkr-compose-consumer
+    ports:
+      - "8080:8080"
+    networks:
+      - by-compose-producer-consumer
+      
+networks:
+  by-compose-producer-consumer:        
